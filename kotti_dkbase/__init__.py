@@ -23,3 +23,4 @@ def includeme(config):
         renderer='kotti_dkbase:templates/error.pt',
         )
     config.add_static_view('static-kotti_dkbase', 'kotti_dkbase:static')
+    config.override_asset('kotti', 'kotti_dkbase:kotti-overrides/')
