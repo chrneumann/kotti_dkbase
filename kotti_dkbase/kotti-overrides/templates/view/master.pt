@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      tal:define="page_slots api.slots"
+      metal:extend-macro="api.macro('kotti_dkbase:templates/base-layout.pt')"
+      metal:define-macro="main">
+  <head>
+    <title>Master Template</title>
+    <tal:head metal:use-macro="head-more">
+      <meta name="description" content="${api.context.description | ''}" />
+      <tal:slots tal:define="snippets page_slots.inhead"
+		 tal:condition="snippets"
+		 tal:repeat="snippet snippets"
+		 tal:replace="structure snippet" />
+      <more tal:omit-tag="" metal:define-slot="head-more"></more>
+    </tal:head>
+  </head>
+  <body>
+    <div metal:fill-slot="content">
+      <div class="row">
+	<div class="span3 left-column"
+	     tal:condition="page_slots.left"
+	     tal:content="api.render_template('kotti:templates/render_column_slot.pt', slot=page_slots.left)">
+	</div>
+
+	<div tal:define="span 12 - int(bool(page_slots.left)) * 3 - int(bool(page_slots.right)) * 4" class="span${span}">
+          <div class="above-content"
+               tal:condition="page_slots.abovecontent"
+               tal:content="api.render_template('kotti:templates/render_content_slot.pt', slot=page_slots.abovecontent)">
+          </div>
+
+          <div tal:replace="api.render_template('kotti:templates/messages.pt')" />
+
+          <div class="inner-content">
+	    <div metal:define-slot="content">
+              <h1>${api.context.title}</h1>
+	    </div>
+          </div>
+
+          <div class="below-content" 
+               tal:condition="page_slots.belowcontent"
+               tal:content="api.render_template('kotti:templates/render_content_slot.pt', slot=page_slots.belowcontent)">
+          </div>
+	</div>
+
+	<div class="span4 right-column"
+	     tal:condition="page_slots.right"
+	     tal:content="api.render_template('kotti:templates/render_column_slot.pt', slot=page_slots.right)">
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
