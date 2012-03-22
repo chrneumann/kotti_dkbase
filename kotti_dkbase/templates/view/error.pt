@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
       metal:define-macro="main"
-      metal:extend-macro="api.macro('kotti_dkbase:templates/base-layout.pt')">
-  <head tal:omit-tag="">
-    <title metal:fill-slot="page-title">Server-Fehler ${context.code}</title>
-  </head>
-    <body>
-    <div metal:fill-slot="content">
+      metal:use-macro="api.macro('kotti:templates/view/master.pt')">
+  <article metal:fill-slot="content" class="content">
       <h1>
 	<span style="font-size:70%; color:gray;">Server-Fehler ${context.code}</span><br/>
 	<span metal:define-slot="error-title">Anfrage konnte nicht bearbeitet werden</span>
@@ -17,6 +12,5 @@
 	daher nicht bearbeitet werden. Bitte versuchen Sie es später
 	noch einmal.
       </p>
-    </div>
-  </body>
+  </article>
 </html>

@@ -25,7 +25,8 @@ def exception_decorator(view):
     return f
 
 def error_view(exception, request):
-    if exception.code != 404:
+    should_mail = get_settings().get('kotti_dkbase.send_error_mails') == "True"
+    if should_mail and exception.code != 404:
         mail_admin(str(exception) + str(request))
     request.response.status_int = exception.code
     return {}

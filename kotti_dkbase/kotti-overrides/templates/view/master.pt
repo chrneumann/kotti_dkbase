@@ -1,50 +1,71 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       tal:define="page_slots api.slots"
-      metal:extend-macro="api.macro('kotti_dkbase:templates/base-layout.pt')"
+      lang="de"
       metal:define-macro="main">
   <head>
-    <title>Master Template</title>
-    <tal:head metal:use-macro="head-more">
-      <meta name="description" content="${api.context.description | ''}" />
-      <tal:slots tal:define="snippets page_slots.inhead"
-		 tal:condition="snippets"
-		 tal:repeat="snippet snippets"
-		 tal:replace="structure snippet" />
-      <more tal:omit-tag="" metal:define-slot="head-more"></more>
-    </tal:head>
+    <meta charset="utf-8" />
+    <title metal:define-slot="page-title">${api.page_title | api.site_title}</title>
+    <meta name="description" content="${api.context.description | ''}" />
+    <div tal:replace="api.render_template('kotti_dkbase:templates/view/master-kotti-headers.pt')" />
+    <more tal:omit-tag="" metal:define-slot="head-more"></more>
+    <!-- 'inhead' slots: support third party injection of things that
+         go into the head -->
+    <tal:slots tal:define="snippets page_slots.inhead"
+               tal:condition="snippets"
+               tal:repeat="snippet snippets"
+               tal:replace="structure snippet" />
   </head>
-  <body>
-    <div metal:fill-slot="content">
-      <div class="row">
-	<div class="span3 left-column"
-	     tal:condition="page_slots.left"
-	     tal:content="api.render_template('kotti:templates/render_column_slot.pt', slot=page_slots.left)">
-	</div>
 
-	<div tal:define="span 12 - int(bool(page_slots.left)) * 3 - int(bool(page_slots.right)) * 4" class="span${span}">
-          <div class="above-content"
-               tal:condition="page_slots.abovecontent"
-               tal:content="api.render_template('kotti:templates/render_content_slot.pt', slot=page_slots.abovecontent)">
+  <body class="${api.user is not None and 'logged-in'}
+               view-${request.view_name or 'default'}
+               ${api.body_css_class}">
+    <div tal:condition="api.user is not None"
+         tal:replace="api.render_template('kotti:templates/editor-bar.pt')" />
+    
+    <div class="container main-container">
+      <div class="top_border"></div>
+      <div class="content">
+	<div class="page-header"><a href="/"><img alt="Datenkarussell" src="/static-kotti/banner.png"/></a></div>
+        <div class="row">
+          <div class="span3 left-column"
+               tal:condition="page_slots.left"
+               tal:content="api.render_template('kotti:templates/render_column_slot.pt', slot=page_slots.left)">
           </div>
 
-          <div tal:replace="api.render_template('kotti:templates/messages.pt')" />
+          <div tal:define="span 12 - int(bool(page_slots.left)) * 3 - int(bool(page_slots.right)) * 4" class="span${span}">
+            <div class="above-content"
+                 tal:condition="page_slots.abovecontent"
+                 tal:content="api.render_template('kotti:templates/render_content_slot.pt', slot=page_slots.abovecontent)">
+            </div>
 
-          <div class="inner-content">
-	    <div metal:define-slot="content">
-              <h1>${api.context.title}</h1>
-	    </div>
+            <div tal:replace="api.render_template('kotti:templates/messages.pt')" />
+
+            <div class="inner-content">
+              <div metal:define-slot="content">
+                <h1>${api.context.title}</h1>
+              </div>
+            </div>
+
+            <div class="below-content" 
+                 tal:condition="page_slots.belowcontent"
+                 tal:content="api.render_template('kotti:templates/render_content_slot.pt', slot=page_slots.belowcontent)">
+            </div>
           </div>
 
-          <div class="below-content" 
-               tal:condition="page_slots.belowcontent"
-               tal:content="api.render_template('kotti:templates/render_content_slot.pt', slot=page_slots.belowcontent)">
+          <div class="span4 right-column"
+               tal:condition="page_slots.right"
+               tal:content="api.render_template('kotti:templates/render_column_slot.pt', slot=page_slots.right)">
           </div>
-	</div>
-
-	<div class="span4 right-column"
-	     tal:condition="page_slots.right"
-	     tal:content="api.render_template('kotti:templates/render_column_slot.pt', slot=page_slots.right)">
-	</div>
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <div class="footer-wrap">
+      <div class="container">
+	<footer>
+	  <a href="/">Startseite</a> | <a href="/kontakt">Kontakt</a><br/>
+	  <span style="color:#474;">Design, Umsetzung und Hosting: <a href="http://www.datenkarussell.de">Datenkarussell</a></span>
+	</footer>
       </div>
     </div>
   </body>

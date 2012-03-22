@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      metal:use-macro="api.macro('kotti_dkbase:templates/error.pt')">
+      metal:use-macro="api.macro('kotti_site_frankfurtvegan:templates/error.pt')">
   <head tal:omit-tag="">
       <title tal:omit-tag="">Dokument nicht gefunden</title>
   </head>
@@ -9,7 +9,7 @@
     <h1 metal:fill-slot="error-title">Dokument nicht gefunden</h1>
     <p metal:fill-slot="explanation">
       Die angeforderte Adresse ist nicht oder nicht mehr auf diesem
-      Server verfügbar. Möglicherweise finden Sie den gewünschten
+      Server verfügbar. Möglicherweise findest du den gewünschten
       Inhalt über unsere <a href="/">Startseite</a>. Vielleicht ist
       der Inhalt auch später wieder verfügbar.
     </p>
