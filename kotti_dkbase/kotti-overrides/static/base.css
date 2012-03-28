@@ -41,3 +41,7 @@ p.description {
     margin-top:1em;
     font-weight:bold;
 }
+
+ul {
+    list-style-type:square;
+}
