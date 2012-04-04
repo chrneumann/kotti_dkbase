@@ -2,6 +2,7 @@ from pyramid.httpexceptions import HTTPError
 from pyramid.httpexceptions import HTTPNotFound
 from kotti_dkbase.views import error_view
 from kotti_dkbase.views import exception_decorator
+from kotti.views import slots
 
 def includeme(config):
     config.include('pyramid_zcml')
@@ -24,3 +25,5 @@ def includeme(config):
         )
     config.add_static_view('static-kotti_dkbase', 'kotti_dkbase:static')
     config.override_asset('kotti', 'kotti_dkbase:kotti-overrides/')
+
+    slots.register(slots.RenderLeftSlot, None, slots.render_local_navigation)
