@@ -1,0 +1,22 @@
+<div id="local-navigation">
+  <h2>
+    <i class="icon-chevron-right"></i>
+    <a href="${api.url(parent)}"
+       title="${getattr(parent, 'description', None)}">
+      ${parent.title}
+    </a>
+  </h2>
+  <ul>
+    <tal:repeat tal:define="nodes children"
+                tal:repeat="item nodes">
+      <li tal:define="active item == context and 'active' or ''"
+          class="${active}">
+
+        <a href="${api.url(item)}"
+           title="${getattr(item, 'description', None)}">
+          ${item.title}
+        </a>
+      </li>
+    </tal:repeat>
+  </ul>
+</div>

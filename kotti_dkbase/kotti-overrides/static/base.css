@@ -15,6 +15,10 @@ body {
     margin-bottom: -10em;
 }
 
+.content {
+    margin-bottom:2em;
+}
+
 .push {
     height:10em;
 }
@@ -44,4 +48,35 @@ p.description {
 
 ul {
     list-style-type:square;
+}
+
+
+#local-navigation {
+    border-right:1px solid #ccc;
+}
+
+
+#local-navigation h2 {
+    padding:0.7em 1em 0.3em;
+    font-size:105%;
+    line-height:2em;
+    border-bottom:1px solid #aaa;
+}
+
+#local-navigation ul {
+    margin:0.2em 2.5em;
+}
+
+#local-navigation ul > li {
+}
+
+
+#local-navigation li > a {
+    line-height:3em;
+    display:block;
+    color:#000;
+}
+
+
+#local-navigation li > a:hover {
 }
