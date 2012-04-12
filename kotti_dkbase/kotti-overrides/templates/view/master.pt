@@ -18,11 +18,11 @@
                tal:replace="structure snippet" />
   </head>
 
-  <body class="${api.user is not None and 'logged-in'}
+  <body class="${not is_error and api.user is not None and 'logged-in'}
                view-${request.view_name or 'default'}
                ${api.body_css_class}">
     <div tal:content="api.render_template('kotti_dkbase:templates/view/master-body-top.pt')"></div>
-    <div tal:condition="api.user is not None and not is_error"
+    <div tal:condition="not is_error and api.user is not None and not is_error"
          tal:replace="api.render_template('kotti:templates/editor-bar.pt')" />
     <div class="container main-container">
       <div class="content">
