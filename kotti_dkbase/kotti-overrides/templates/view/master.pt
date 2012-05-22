@@ -26,19 +26,9 @@
          tal:replace="api.render_template('kotti:templates/editor-bar.pt')" />
     <div class="container main-container">
       <div class="content">
-	<div class="page-header">
-	  <a href="/"><img alt="Datenkarussell" src="/static-kotti/logo.png"/></a>
-	  <ul tal:condition="not is_error" class="nav nav-tabs">
-	    <li class="${api.root == api.context and 'active'}">
-	      <a href="${request.application_url}">Startseite</a>
-	    </li>
-	    <li tal:define="items [i for i in api.list_children(api.root) if i.in_navigation]"
-		tal:repeat="item items"
-		class="${api.inside(api.context, item) and 'active' or None}">
-	      <a href="${api.url(item)}" title="${item.description}">${item.title}</a>
-	    </li>
-	  </ul>
-	</div>
+				<div class="page-header">
+					<div tal:content="api.render_template('kotti_dkbase:templates/view/master-body-page-header.pt')"></div>
+				</div>
         <div class="row">
           <div class="span3 left-column"
                tal:condition="not is_error and page_slots.left"
