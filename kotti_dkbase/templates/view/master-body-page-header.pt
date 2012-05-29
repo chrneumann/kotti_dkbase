@@ -1,6 +1,6 @@
 <div tal:content="api.render_template('kotti_dkbase:templates/view/master-body-page-header-begin.pt')"></div>
 <a href="/"><img alt="Datenkarussell" src="/static-kotti/logo.png"/></a>
-<ul tal:define="is_error isinstance(api.context, Exception); page_slots api.slots" tal:condition="not is_error" class="nav nav-tabs">
+<ul tal:define="is_error isinstance(api.context, Exception); page_slots api.slots" tal:condition="not is_error" class="primary-navigation">
 	<li class="${api.root == api.context and 'active'}">
 	  <a href="${request.application_url}">Startseite</a>
 	</li>

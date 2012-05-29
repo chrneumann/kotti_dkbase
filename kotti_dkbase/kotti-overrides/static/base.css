@@ -80,3 +80,34 @@ ul {
 
 #local-navigation li > a:hover {
 }
+
+.primary-navigation {
+		background-image:url('/static-kotti_site_datenkarussell/images/nav_bg.png');
+		margin:0;
+		font-size:17px;
+		float:left;
+		width:100%;
+		margin-bottom:2em;
+}
+
+.primary-navigation > li {
+		display:inline;
+		background-image:url('/static-kotti_site_datenkarussell/images/nav_bg.png');
+}
+
+.primary-navigation > li > a {
+		background-image:url('/static-kotti_site_datenkarussell/images/nav_bg.png');
+		color:white;
+		padding:0.7em 1.1em;
+		border-right:1px solid #2f4e1c;
+		float:left;
+}
+
+.primary-navigation > li.active > a {
+		background-image:url('/static-kotti_site_datenkarussell/images/nav_active_bg.png');
+}
+
+.primary-navigation > li > a:hover {
+		background-image:url('/static-kotti_site_datenkarussell/images/nav_selected_bg.png');
+		text-decoration:none;
+}
