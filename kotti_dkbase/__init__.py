@@ -26,4 +26,4 @@ def includeme(config):
     config.add_static_view('static-kotti_dkbase', 'kotti_dkbase:static')
     config.override_asset('kotti', 'kotti_dkbase:kotti-overrides/')
 
-    slots.register(slots.RenderLeftSlot, None, slots.render_local_navigation)
+    slots.register(slots.RenderRightSlot, None, slots.render_local_navigation)
