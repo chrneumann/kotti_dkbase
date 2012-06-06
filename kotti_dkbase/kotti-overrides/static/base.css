@@ -50,11 +50,10 @@ ul {
     list-style-type:square;
 }
 
-
-#local-navigation {
-    border-left:1px solid #ccc;
+.right-column {
+    border-left:2px solid #eff0ef;
+		padding:0em 1em;
 }
-
 
 #local-navigation h2 {
     padding:0.7em 1em 0.3em;

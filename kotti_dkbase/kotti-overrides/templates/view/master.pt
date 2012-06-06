@@ -55,9 +55,10 @@
             </div>
           </div>
 
-          <div class="span4 right-column"
-	       tal:condition="not is_error and page_slots.right"
-               tal:content="api.render_template('kotti:templates/render_column_slot.pt', slot=page_slots.right)">
+          <div class="span4" tal:condition="not is_error and page_slots.right">
+						<div class="right-column"
+								 tal:content="api.render_template('kotti:templates/render_column_slot.pt', slot=page_slots.right)">
+						</div>
           </div>
         </div>
       </div>
