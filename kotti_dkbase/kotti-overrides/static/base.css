@@ -2,14 +2,11 @@ html, body {
     height:100%;
     margin:0;
     padding:0;
-}
-
-body {
     background-color:white;
     color:black;
 }
 
-.main-container {
+#without-footer-wrap {
     min-height:100%;
     height:auto;
     margin-bottom: -10em;
@@ -23,7 +20,7 @@ body {
     height:10em;
 }
 
-.footer-wrap {
+#footer-wrap {
     background-color:#EEE;
     padding:1em;
     color:black;
@@ -31,7 +28,7 @@ body {
     text-align:center;
 }
 
-.page-header img {
+#header-container img {
     border:0;
     margin-bottom:10px;
     margin-top:10px;
@@ -82,24 +79,31 @@ ul {
 
 .primary-navigation {
 		background-image:url('/static-kotti_site_datenkarussell/images/nav_bg.png');
+		background-repeat:repeat-x;
 		margin:0;
 		font-size:17px;
 		float:left;
 		width:100%;
 		margin-bottom:2em;
+		padding:0;
 }
 
 .primary-navigation > li {
-		display:inline;
-		background-image:url('/static-kotti_site_datenkarussell/images/nav_bg.png');
+		display:inline-block;
+		float:left;
+		border-right:1px solid #2f4e1c;
+		margin:0;
+		padding:0;
 }
 
 .primary-navigation > li > a {
 		background-image:url('/static-kotti_site_datenkarussell/images/nav_bg.png');
+		background-repeat:repeat-x;
 		color:white;
-		padding:0.7em 1.1em;
-		border-right:1px solid #2f4e1c;
-		float:left;
+		display:inline-block;
+		padding:10px 1.1em;
+		height:38px;
+		margin:0;
 }
 
 .primary-navigation > li.active > a {

@@ -1,3 +1,0 @@
-<div tal:content="api.render_template('kotti_dkbase:templates/view/master-body-page-header-begin.pt')"></div>
-<a href="/"><img alt="Datenkarussell" src="/static-kotti/logo.png"/></a>
-<div tal:content="api.render_template('kotti_dkbase:templates/view/primary-navigation.pt')"></div>
