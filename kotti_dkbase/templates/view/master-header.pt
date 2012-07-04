@@ -1,2 +1,2 @@
-<a href="/"><img alt="Logo" src="/static-kotti/logo.png"/></a>
+<div class="logo"><a href="/"><img alt="Logo" src="/static-kotti/logo.png"/></a></div>
 <div tal:content="api.render_template('kotti_dkbase:templates/view/primary-navigation.pt')"></div>
