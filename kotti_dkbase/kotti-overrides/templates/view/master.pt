@@ -1,11 +1,15 @@
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       metal:define-macro="main"
-      tal:define="is_error isinstance(api.context, Exception); page_slots api.slots"
+      tal:define="is_error isinstance(api.context, Exception);
+									page_slots api.slots;
+									dummy api.view_needed;"
       lang="de">
   <head> 
     <meta charset="utf-8" />
     <title metal:define-slot="page-title">${api.page_title | api.site_title}</title>
     <meta name="description" content="${api.context.description | ''}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <div tal:replace="api.render_template('kotti_dkbase:templates/view/master-kotti-headers.pt')" />
     <div tal:replace="api.render_template('kotti_dkbase:templates/view/master-layout-headers.pt')" />
     <more tal:omit-tag="" metal:define-slot="head-more"></more>
@@ -21,7 +25,6 @@
                ${api.body_css_class}">
     <div tal:condition="not is_error and api.user is not None and not is_error"
          tal:replace="api.render_template('kotti:templates/editor-bar.pt')" />
-
 
 		<div metal:use-macro="api.macro('kotti_dkbase:templates/view/layout.pt')">
 			<div metal:define-slot="content" metal:fill-slot="content">
