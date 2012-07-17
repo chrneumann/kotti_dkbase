@@ -1,0 +1,5 @@
+MANIFEST
+build/
+dist/
+kotti_dkbase.egg-info/
+*.pyc
