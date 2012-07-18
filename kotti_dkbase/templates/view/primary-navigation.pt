@@ -1,10 +1,12 @@
-<ul tal:define="is_error isinstance(api.context, Exception); page_slots api.slots" tal:condition="not is_error" class="primary-navigation">
-	<li class="${api.root == api.context and 'active'}">
-	  <a href="${request.application_url}">Startseite</a>
-	</li>
-	<li tal:define="items [i for i in api.list_children(api.root) if i.in_navigation]"
-			tal:repeat="item items"
-			class="${api.inside(api.context, item) and 'active' or None}">
-	  <a href="${api.url(item)}" title="${item.description}">${item.title}</a>
-	</li>
-</ul>
+<div id="primary-navigation">
+  <ul>
+    <li class="${api.root == api.context and 'active'}">
+      <a href="${request.application_url}"><span>Startseite</span></a>
+    </li>
+    <li tal:define="items [i for i in api.list_children(api.root) if i.in_navigation]"
+        tal:repeat="item items"
+        class="${api.inside(api.context, item) and 'active' or None}">
+      <a href="${api.url(item)}" title="${item.description}">${item.title}</a>
+    </li>
+  </ul>
+</div>
