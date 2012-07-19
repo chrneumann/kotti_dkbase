@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div tal:condition="api.root == api.context" id="below-header-wrap">
+    <div tal:condition="not is_error and api.root == api.context" id="below-header-wrap">
       <div id="below-header">
         <div metal:define-slot="below-header-content" tal:omit-tag=""/>
       </div>

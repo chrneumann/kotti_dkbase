@@ -4,7 +4,7 @@
       tal:define="is_error isinstance(api.context, Exception);
 									page_slots api.slots;
 									dummy api.view_needed;
-                  one_column_sites [api.root, api.root['kontakt']];"
+                  one_column_sites not is_error and [api.root, api.root['kontakt']];"
       lang="de">
   <head> 
     <meta charset="utf-8" />
