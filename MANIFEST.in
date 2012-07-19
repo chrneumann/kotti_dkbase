@@ -1,5 +1,5 @@
 include README.rst
 include COPYING.txt
 include CHANGES.txt
-recursive-include kotti_dkbase *.mo *.pt *.txt *.css *.ini
+recursive-include kotti_dkbase *.mo *.pt *.txt *.css *.ini *.zcml
 include runtests.py
