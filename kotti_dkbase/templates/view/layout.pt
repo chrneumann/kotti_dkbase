@@ -1,56 +1,6 @@
-<div metal:define-macro="main" tal:omit-tag="">
-	<div id="without-footer-wrap">
-		<div id="header-wrap">
-			<div id="header-container" class="container">
-				<div tal:content="api.render_template('kotti_dkbase:templates/view/master-header.pt')"></div>
-			</div>
-		</div>
-
-		<div id="main-wrap">
-			<div id="main-container" class="container">
-				<div class="content">
-
-					<div class="row">
-						<div class="span3 left-column"
-								 tal:condition="not is_error and page_slots.left"
-								 tal:content="api.render_template('kotti:templates/render_column_slot.pt', slot=page_slots.left)">
-						</div>
-
-						<div tal:define="span is_error and 12 or 12 - int(bool(page_slots.left)) * 3 - int(bool(page_slots.right)) * 4" class="span${span}">
-							<div class="above-content"
-									 tal:condition="not is_error and page_slots.abovecontent"
-									 tal:content="api.render_template('kotti:templates/render_content_slot.pt', slot=page_slots.abovecontent)">
-							</div>
-
-							<div tal:condition="not is_error" tal:replace="api.render_template('kotti:templates/messages.pt')" />
-
-							<div class="inner-content">
-								<div metal:define-slot="content">
-									<h1>${api.context.title}</h1>
-								</div>
-							</div>
-
-							<div class="below-content"
-									 tal:condition="not is_error and page_slots.belowcontent"
-									 tal:content="api.render_template('kotti:templates/render_content_slot.pt', slot=page_slots.belowcontent)">
-							</div>
-						</div>
-
-						<div class="span4" tal:condition="not is_error and page_slots.right">
-							<div class="right-column"
-									 tal:content="api.render_template('kotti:templates/render_column_slot.pt', slot=page_slots.right)">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="push"></div>
-	</div>
-
-	<div id="footer-wrap">
-		<div id="footer-container" class="container">
-			<div tal:content="api.render_template('kotti_dkbase:templates/view/master-footer.pt')" />
-		</div>
-	</div>
+<div metal:use-macro="api.macro('kotti_dkbase:templates/view/base-layout.pt')"
+     metal:define-macro="main" tal:omit-tag="">
+  <div metal:fill-slot="content"
+       metal:define-slot="content">
+  </div>
 </div>

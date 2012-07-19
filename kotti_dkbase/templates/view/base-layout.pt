@@ -1,0 +1,69 @@
+<div metal:define-macro="main" tal:omit-tag="">
+  <div id="top-wrap"
+       tal:define="one_column is_error or context in one_column_sites or not page_slots.right"
+       class="${one_column and 'one-column' or ''}">
+    <div id="header-wrap">
+      <div id="header">
+        <div metal:define-slot="header-top" tal:omit-tag=""></div>
+        <div id="logo">
+          <a href="/"><img alt="${api.site_title}"
+          src="/static-kotti_dkbase/images/logo.png"/></a>
+        </div>
+        <div id="primary-navigation-wrap">
+          <div tal:replace="api.render_template('kotti_dkbase:templates/view/primary-navigation.pt')">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div tal:condition="api.root == api.context" id="below-header-wrap">
+      <div id="below-header">
+        <div metal:define-slot="below-header-content" tal:omit-tag=""/>
+      </div>
+    </div>
+    <div id="content-wrap">
+      <div class="above-content"
+           tal:condition="not is_error and page_slots.abovecontent"
+           tal:content="api.render_template('kotti:templates/render_content_slot.pt', slot=page_slots.abovecontent)">
+      </div>
+      <div tal:condition="one_column" id="content">
+        <div metal:define-slot="content">
+          <h1>${api.context.title}</h1>
+        </div>        
+      </div>
+      <div class="row-fluid" tal:condition="not one_column">
+        <div id="content" class="span8">
+          <div id="box3" class="box-style1">
+            <div metal:define-slot="content">
+              <h1>${api.context.title}</h1>
+            </div>
+          </div>
+        </div>
+        <div id="sidebar" class="span4">
+          <div id="sidebar-bg">
+            <div id="sidebar-bgtop">
+              <div id="sidebar-bgbtm">
+                <div id="box2" class="box-style1"
+                     tal:content="api.render_template('kotti:templates/render_column_slot.pt', slot=page_slots.right)">
+                  Right Column Content
+                </div>
+                <div class="clearfix">&nbsp;</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="below-content"
+           tal:condition="not is_error and page_slots.belowcontent"
+           tal:content="api.render_template('kotti:templates/render_content_slot.pt', slot=page_slots.below-content)">
+      </div>
+    </div>
+    <div id="footer-push"></div>
+  </div>
+  <div id="bottom-wrap">
+    <div id="footer-wrap">
+      <div id="footer">
+        <div metal:define-slot="footer-content" tal:omit-tag="">aoeuou</div>
+			</div>
+		</div>
+	</div>
+</div>

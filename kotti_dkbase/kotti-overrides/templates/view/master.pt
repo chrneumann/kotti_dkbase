@@ -3,7 +3,8 @@
       metal:define-macro="main"
       tal:define="is_error isinstance(api.context, Exception);
 									page_slots api.slots;
-									dummy api.view_needed;"
+									dummy api.view_needed;
+                  one_column_sites [api.root, api.root['kontakt']];"
       lang="de">
   <head> 
     <meta charset="utf-8" />
@@ -13,6 +14,7 @@
     <div tal:replace="api.render_template('kotti_dkbase:templates/view/master-kotti-headers.pt')" />
     <div tal:replace="api.render_template('kotti_dkbase:templates/view/master-layout-headers.pt')" />
     <more tal:omit-tag="" metal:define-slot="head-more"></more>
+    <link href="${request.static_url('kotti_dkbase:static/layout.css')}" rel="stylesheet" />
     <link href="${request.static_url('kotti_dkbase:static/custom.css')}" rel="stylesheet" />
     <link href="${request.static_url('kotti_dkbase:static/primary-navigation.css')}" rel="stylesheet" />
     <tal:slots tal:define="snippets not is_error and page_slots and page_slots.inhead"
