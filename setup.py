@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from setuptools import Command
+from setuptools import Command, find_packages
 
 try:
     from setuptools import setup
@@ -26,4 +26,6 @@ setup(
     setup_requires=['d2to1'],
     d2to1=True,
     cmdclass = {'test': PyTest},
+    packages=find_packages(),
+    include_package_data=True,
 )
