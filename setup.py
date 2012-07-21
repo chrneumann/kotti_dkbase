@@ -12,6 +12,7 @@ except IOError:
 
 install_requires = [
     'Kotti ==0.7a4',
+    'kotti_contactform >= 0.1.0, <= 0.2.0',
     'pyramid_zcml',
     'zope.browserresource',
     'psycopg2',
