@@ -5,7 +5,6 @@ from kotti_dkbase.views import exception_decorator
 import kotti.static as ks
 from fanstatic import Resource, Library
 from js.bootstrap import bootstrap_css
-from kotti.views.slots import includeme_local_navigation
 
 def setup_needed_group():
     """
@@ -52,4 +51,3 @@ def includeme(config):
     config.add_static_view('static-kotti_dkbase', 'kotti_dkbase:static')
     config.override_asset('kotti', 'kotti_dkbase:kotti-overrides/')
     setup_needed_group()
-    includeme_local_navigation(config)
