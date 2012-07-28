@@ -4,6 +4,9 @@ kotti_dkbase
 
 Kotti setup and modifications for CMS projects of datenkarussell.de
 
+Warning: No backward compatibility guaranteed. Use at your own risk
+and for educational purposes only. 
+
 `Find out more about Kotti`_
 
 Development happens at https://github.com/chrneumann/kotti_dkbase
