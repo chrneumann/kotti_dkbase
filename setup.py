@@ -19,7 +19,7 @@ install_requires = [
 ]
 
 setup(name='kotti_dkbase',
-      version='0.1.0b1',
+      version='0.1.0b2',
       description='Kotti setup and modifications for CMS projects of Datenkarussell.',
       long_description='\n\n'.join([README, CHANGES]),
       classifiers=[
