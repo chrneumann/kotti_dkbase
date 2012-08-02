@@ -17,6 +17,7 @@ html, body {
 #footer-push {
     margin-top:3em;
 		height:9em;
+    clear:both;
 }
 
 #bottom-wrap {
