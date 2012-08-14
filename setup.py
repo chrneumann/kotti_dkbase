@@ -11,11 +11,21 @@ except IOError:
     README = CHANGES = ''
 
 install_requires = [
-    'Kotti ==0.7a4',
+    'Kotti >=0.7a4',
     'kotti_contactform >= 0.1.0, <= 0.2.0',
     'pyramid_zcml',
     'zope.browserresource',
     'psycopg2',
+    'pyramid >=1.3',
+]
+
+tests_require = [
+    'pytest',
+    'pytest-cov',
+    'pytest-pep8',
+    'pytest-xdist',
+    'wsgi_intercept',
+    'zope.testbrowser',
 ]
 
 setup(name='kotti_dkbase',
@@ -39,4 +49,7 @@ setup(name='kotti_dkbase',
       include_package_data=True,
       zip_safe=False,
       install_requires=install_requires,
-      )
+      extras_require={
+          'testing': tests_require,
+      },
+)

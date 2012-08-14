@@ -4,6 +4,7 @@ History
 0.1.0b2 - unreleased
 --------------------
 
+- Added maintenance WSGI app (see kotti_dkbase.maintenance).
 - Added clear:both to #footer-push style.
 
 0.1.0b1 - 2012/07/28
