@@ -1,10 +1,18 @@
- body {
+body {
 		margin:0;
 		padding:0;
 }
 
+body.logged-in {
+    padding-top:0px;
+}
+
 html, body {
 		height:100%;
+}
+
+.subnav-fixed {
+    top:0px;
 }
 
 #top-wrap {
