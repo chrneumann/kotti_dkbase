@@ -4,6 +4,7 @@ History
 0.1.0b2 - unreleased
 --------------------
 
+- Use Fanstatic for layout css.
 - Added maintenance WSGI app (see kotti_dkbase.maintenance).
 - Added clear:both to #footer-push style.
 
