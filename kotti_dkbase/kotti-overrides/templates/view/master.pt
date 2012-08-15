@@ -14,9 +14,6 @@
     <div tal:replace="api.render_template('kotti_dkbase:templates/view/master-kotti-headers.pt')" />
     <div tal:replace="api.render_template('kotti_dkbase:templates/view/master-layout-headers.pt')" />
     <more tal:omit-tag="" metal:define-slot="head-more"></more>
-    <link href="${request.static_url('kotti_dkbase:static/layout.css')}" rel="stylesheet" />
-    <link href="${request.static_url('kotti_dkbase:static/custom.css')}" rel="stylesheet" />
-    <link href="${request.static_url('kotti_dkbase:static/primary-navigation.css')}" rel="stylesheet" />
     <tal:slots tal:define="snippets not is_error and page_slots and page_slots.inhead"
                tal:condition="snippets"
                tal:repeat="snippet snippets"

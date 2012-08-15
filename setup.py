@@ -11,7 +11,7 @@ except IOError:
     README = CHANGES = ''
 
 install_requires = [
-    'Kotti >=0.7a4',
+    'Kotti >=0.7dev8',
     'kotti_contactform >= 0.1.0, <= 0.2.0',
     'pyramid_zcml',
     'zope.browserresource',
@@ -55,5 +55,8 @@ setup(name='kotti_dkbase',
       entry_points="""\
       [paste.app_factory]
       main = kotti_dkbase.maintenance:main
+
+      [fanstatic.libraries]
+      kotti_dkbase = kotti_dkbase:lib_dkbase
       """,
 )
