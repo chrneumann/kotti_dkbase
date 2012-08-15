@@ -52,4 +52,8 @@ setup(name='kotti_dkbase',
       extras_require={
           'testing': tests_require,
       },
+      entry_points="""\
+      [paste.app_factory]
+      main = kotti_dkbase.maintenance:main
+      """,
 )

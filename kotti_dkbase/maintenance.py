@@ -2,7 +2,7 @@
 Provides a maintenance WSGI app to be used with Paste Deploy.
 
 [app:maintenance]
-use = egg:kotti_dkbase.maintenance
+use = egg:kotti_dkbase
 kotti_dkbase.maintenance_page = my_package:static/maintenance.html
 """
 
@@ -19,7 +19,7 @@ def main(global_config, **settings):
 
     def maintenance(environ, start_response):
         start_response('503 Service Unavailable',
-                       [('content-type', 'text/plain')])
+                       [('content-type', 'text/html')])
         return [body]
 
     return maintenance
