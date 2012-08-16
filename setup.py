@@ -11,8 +11,8 @@ except IOError:
     README = CHANGES = ''
 
 install_requires = [
-    'Kotti >=0.7dev8',
-    'kotti_contactform >= 0.1.0, <= 0.2.0',
+    'Kotti >= 0.7',
+    'kotti_contactform >= 0.1.0',
     'pyramid_zcml',
     'zope.browserresource',
     'psycopg2',
