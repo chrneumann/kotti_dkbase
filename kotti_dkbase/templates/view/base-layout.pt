@@ -21,6 +21,7 @@
       </div>
     </div>
     <div id="content-wrap">
+      <div tal:replace="api.render_template('kotti:templates/messages.pt')" />
       <div class="above-content"
            tal:condition="not is_error and page_slots.abovecontent"
            tal:content="api.render_template('kotti:templates/render_content_slot.pt', slot=page_slots.abovecontent)">
